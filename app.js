@@ -1,13 +1,26 @@
-const height = Number(prompt("enter your height (cm)"));
-const weight = Number(prompt("enter your weight (kg)"));
-const user = prompt("Enter your name");
+const twig = {
+        firstName: "twig",
+        lastName: "mcstick",
+        height: 200,
+        weight: 54,    
+    } 
+const norm = {
+        firstName: "norm",
+        lastName: "conform",
+        height: 190,
+        weight: 78,
+    }
+const brick = {
+        firstName: "brick",
+        lastName: "mcthick",
+        height: 150,
+        weight: 91,
+    } 
 
-function getBMI(x, y) {
-    const BMI = (y/((x*x)/10000));
-    console.log(BMI)
+function getBMI(users) {
+    let BMI = (users.weight/((users.height**2)/10000));
+    return BMI;
 }
-
-getBMI(height, weight)
 
 function checkBMI(z) {
     if (z < 18.5) {
@@ -16,22 +29,18 @@ function checkBMI(z) {
     else if (z < 25) {
         console.log("Healthy Weight");
     }
-    else if (z < 30) {
+    else if (z >= 25){
         console.log("Overweight");
     }
-    else {
-        console.log("Obesity");
-    }
-}
-    
-checkBMI((y/((x*x)/10000)));
-
-/* function init() {
-//get value for weight and height
-//get bmi 
-    let BMI = Number(getBMI(height, weight));
-
+    else
+        console.log("ERROR");
 }
 
-console.log(user)
-init(); */
+function statement(users) {
+    let BMI = Number(getBMI(users));
+    console.log(`${users.firstName} ${users.lastName}`);
+    console.log(`BMI: ${BMI}`);
+    checkBMI(BMI);
+}
+
+statement(brick);
